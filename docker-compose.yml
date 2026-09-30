@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: sentinelforge-postgres
+
+    environment:
+      POSTGRES_USER: sentinelforge
+      POSTGRES_PASSWORD: sentinelforge
+      POSTGRES_DB: sentinelforge
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
