@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './user/user.module.js';
 
 import { HealthController } from './health/health.controller.js';
 import { CompanyModule } from './company/company.module.js';
@@ -12,6 +13,7 @@ import { CompanyModule } from './company/company.module.js';
     }),
     
     CompanyModule,
+    UserModule,
     
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],

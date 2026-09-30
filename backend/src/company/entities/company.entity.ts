@@ -4,7 +4,10 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  OneToMany ,
 } from 'typeorm';
+
+import { User } from '../../user/entities/user.entity.js';
 
 @Entity('companies')
 export class Company {
@@ -16,6 +19,9 @@ export class Company {
     length: 150,
   })
   name!: string;
+
+  @OneToMany(() => User, (user) => user.company)
+  users!: User[];
 
   @CreateDateColumn({
     type: 'timestamptz',
